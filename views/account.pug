@@ -1,0 +1,46 @@
+extends base
+
+block content
+    - if (user)
+        div.options__container
+            form.user-data
+                div.options__card
+
+                    h2.options__title Zmiana danych adresowych
+                    div
+                        label(for='email')
+                        input.input__form#email(type='email' placeholder="E-mail")
+                    div
+                        label(for='street')
+                        input.input__form#street(type='text' placeholder="Ulica")
+                    div
+                        label(for='city')
+                        input.input__form#city(type='text' placeholder="Miasto")
+                    div
+                        label(for='code')
+                        input.input__form#code(type='text' placeholder="Kod pocztowy")
+                    div
+                        button.button--main Zaktualizuj
+            div.password__card
+                h2.options__title Zmiana hasła
+                form.user-password
+                    div
+                        label(for='password-current')
+                        input.input__form#passwordCurrent(type='password' placeholder='aktualne hasło')
+                    div
+                        label(for='password')
+                        input.input__form#password(type='password' placeholder="Hasło")
+                    div
+                        label(for='passwordConfirm') 
+                        input.input__form#passwordConfirm(type='password' placeholder="Potwierdź hasło")
+                    div.buttons__container
+                        button.button--main.button--main-small.btn-update Zaktualizuj           
+                        button.button--main.button--main-small.btn-account-delete Usuń konto
+
+    - else
+        div.container
+            img.logo(src="./style/logo.png" alt="Trade School Logo")
+            div
+                h2 Prosze się zalogować
+                span.register
+                    a(href="/login") Przejdź do logowania

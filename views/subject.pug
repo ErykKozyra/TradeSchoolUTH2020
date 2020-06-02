@@ -1,0 +1,38 @@
+extends base
+
+block content
+  div.course__container
+    div.course__card
+      h2.course__title #{subject.name}
+      p.course__description= subject.description
+      h4.course__subjects Prowadzący:
+      p #{subject.teacher.name} #{subject.teacher.surname}
+    div.options__card
+      h2.card__title Aktualizuj przedmiot
+      form.update-subject
+        div
+          label(for='name')
+          input#name.input__form(type='text' placeholder="Nazwa przedmiotu")
+        div
+          label(for='numOfHours')
+          input.input__form#numOfHours(type='text' placeholder="Liczba godzin")
+        div
+          label(for='maxGroupSize')
+          input.input__form#maxGroupSize(type='text' placeholder="Max uczestników")
+        div.container--default
+          - const idArr = [];
+          each teacher in teachers
+            div
+              label(for=`${teacher.id}`)
+                input(type="radio" id=`${teacher.id}` name="teacher")
+                span #{teacher.name} #{teacher.surname}
+            - idArr.push(`${teacher.id}`)
+        div
+          label(for='description')
+          textarea#description.input__form(type='text' placeholder="Opis przedmiotu" )
+        div.buttons__container
+          button.button--main.button--main-small Aktualizuj
+          button.btn-subject-delete.button--main.button--main-small Usuń przedmiot
+
+        p(style='display: none' id='slugArr') #{slugArr}
+        p(style='display: none' id='idArr') #{idArr}

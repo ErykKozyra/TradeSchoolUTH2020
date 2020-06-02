@@ -1,0 +1,7 @@
+extends base
+
+block content
+  div.subjects--wrapper
+    each subject in subjects 
+        a(href=`/subjects/${subject.id}`)
+          div.button--menu #{subject.name}

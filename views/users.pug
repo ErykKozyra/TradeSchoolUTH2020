@@ -1,0 +1,29 @@
+extends base
+
+block content
+  div.flex--container
+    div.options__card
+      div.page.pagestyle
+        select.limit.seluser.seluser1
+          option Liczba wyszukań
+          option 3
+          option 5
+          option 7
+          option 10
+
+        select.select-tag.seluser
+          option Sortowanie
+          option A-Z
+          option Z-A
+          option Najnowsze
+          option Najstarsze
+
+      each user in users
+        div.users
+          a.card__title(href=`/users/${user.id}`) #{user.surname} #{user.name}
+
+      p(style='display: none' id='sumUsers') #{sum}
+
+      div.page
+        button.button--main.button--main-small.prevb#previous <<<
+        button.button--main.button--main-small.nextb#next >>>    

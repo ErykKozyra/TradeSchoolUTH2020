@@ -1,0 +1,35 @@
+extends base
+
+block content
+    div.container
+        img.logo(src="./style/logo.png" alt="Trade School Logo" title="Designed by rawpixel.com / Freepik")
+        div.register__card
+            h2.card__title Zarejestruj się
+            div.container
+                form.signup.register__form
+                    label(for='name')
+                    input#name.input__form(type='text', placeholder='Imię')
+                    label(for='surname')
+                    input#surname.input__form(type='text', placeholder='Nazwisko')
+                    label(for='pin')
+                    input#pin.input__form(type='text', placeholder='Numer PESEL')
+                    label(for='dob')
+                    input#dob.input__form(type='date', placeholder='Data urodzenia')
+                    label(for='street')
+                    input#street.input__form(type='text', placeholder='Ulica')
+                    label(for='city')
+                    input#city.input__form(type='text', placeholder='Miasto')
+                    label(for='code')
+                    input#code.input__form(type='text', placeholder='Kod pocztowy')
+                    label(for='email')
+                    input#email.input__form(type='email', placeholder='Adres email')
+                    label(for='number')
+                    input#number.input__form(type='text', placeholder='Numer telefonu')
+                    label(for='password')
+                    input#password.input__form(type='password', placeholder='Hasło')
+                    label(for='confirm')
+                    input#confirm.input__form(type='password', placeholder='Powtórz hasło')
+                    div.container--bottom
+                        button.button--main Zarejestruj
+                        span.register
+                            a(href="/login") Mam już konto

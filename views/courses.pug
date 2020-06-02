@@ -1,0 +1,7 @@
+extends base
+
+block content
+  div.wrapper
+    each course in courses
+      a(href=`/courses/${course.id}`)
+        div.button--menu #{course.name}

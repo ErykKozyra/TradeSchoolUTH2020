@@ -1,0 +1,25 @@
+extends base
+
+block content
+  div.flex--container
+    - const slugArr = [], idArr = [];
+    each course in courses
+      div.container
+        div.course__card2
+          h1.course__title= course.name
+          img(src=`../img/${course.slug}.jpg`, alt=`${course.name}`, title=`${course.name}`)
+          p.course__description= course.description
+          div.subjects__container
+            h3.course__subjects Przedmioty w ramach kursu:
+            each subject in course.subjects
+              ul.course__list
+                li.course__subject= subject.name
+
+          - if (user)
+            - if (!user.course)
+              button.button--main.course__button(id=`${course.slug}`) Zapisz się
+              - slugArr.push(`${course.slug}`)
+              - idArr.push(`${course.id}`)
+
+  p(style='display: none' id='joinSlugArr') #{slugArr}
+  p(style='display: none' id='joinIdArr') #{idArr}

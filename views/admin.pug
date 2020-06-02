@@ -1,0 +1,17 @@
+extends base
+
+mixin options(link, text)
+    a(href=`${link}`) #{text}
+
+block content
+    div.admin__container
+        div.button--menu
+            +options('/users', 'Wyświetl użytkowników')
+        div.button--menu
+            +options('/courses', 'Wyświetl kursy')
+        div.button--menu
+            +options('/subjects', 'Wyświetl przedmioty')
+        div.button--menu
+            +options('/addSubject', 'Dodaj przedmiot')
+        div.button--menu
+            +options('/addCourse', 'Dodaj kurs')

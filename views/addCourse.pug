@@ -1,0 +1,15 @@
+extends base
+
+block content
+  div.flex--container
+    div.options__card
+      h2.card__title Dodawanie kursu
+      form.create-course
+        div
+          label(for='name')
+          input#name.input__form(type='text' placeholder="Nazwa kursu")
+        div
+          label(for='description')
+          textarea#description.input__form(type='text' placeholder="Opis kursu" )
+        div.buttons__container
+          button.button--main.button--main-small Dodaj

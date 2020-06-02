@@ -1,0 +1,35 @@
+extends base
+
+block content
+  div.course__container
+    div.course__card
+      h2.course__title #{course.name}
+      p.course__description= course.description
+      h4.course__subjects Przedmioty w ramach kursu:
+      each subject in course.subjects
+        - if (subject.teacher)
+          p #{subject.name} - #{subject.teacher.name} #{subject.teacher.surname}
+    div.options__card
+      h2.card__title Aktualizuj kurs
+      form.update-course
+        div
+          label(for='name')
+          input#name.input__form(type='text' placeholder="Nazwa kursu")
+        div
+          label(for='description')
+          textarea#description.input__form(type='text' placeholder="Opis kursu" )
+        div.subjects__wrapper
+          - const slugArr = [], idArr = [];
+          each subject in subjects
+            div.ck-button
+              label(for=`${subject.slug}`)
+                input(type="checkbox" id=`${subject.slug}`)
+                span= subject.name
+            - slugArr.push(`${subject.slug}`)
+            - idArr.push(`${subject.id}`)
+        div.buttons__container
+          button.button--main.button--main-small Aktualizuj
+          button.btn-course-delete.button--main.button--main-small Usuń kurs
+
+        p(style='display: none' id='slugArr') #{slugArr}
+        p(style='display: none' id='idArr') #{idArr}

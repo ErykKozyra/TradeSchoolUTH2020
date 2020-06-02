@@ -1,0 +1,33 @@
+extends base
+
+block content
+  div.options__container
+    div.options__card
+      h2.card__title Dodawanie przedmiotu
+      form.create-subject
+        div
+          label(for='name')
+          input.input__form#name(type='text' placeholder="Nazwa przedmiotu")
+        div
+          label(for='numOfHours')
+          input.input__form#numOfHours(type='text' placeholder="Liczba godzin")
+        div
+          label(for='maxGroupSize')
+          input.input__form#maxGroupSize(type='text' placeholder="Max uczestników")
+
+        div.container--default
+          - const idArr = [];
+          each teacher in teachers
+            div
+              label(for=`${teacher.id}`)
+                input(type="radio" id=`${teacher.id}` name="teacher")
+                span #{teacher.name} #{teacher.surname}
+            - idArr.push(`${teacher.id}`)
+
+        div
+          label(for='description')
+          textarea#description.input__form(type='text' placeholder="Opis kursu" )
+        div.center
+          button.button--main.button--main-small.btn-update Dodaj
+
+        p(style='display: none' id='idArr') #{idArr}

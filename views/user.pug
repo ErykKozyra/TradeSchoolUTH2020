@@ -1,0 +1,22 @@
+extends base
+
+block content
+  div.container
+    div.login__card
+      h2.card__title #{user.name} #{user.surname}
+      p.strong Numer PESEL: 
+      p.margin #{user.pin}
+      - if (user.dob !== null)
+        - const date = user.dob.toLocaleString('pl-PL', {day: 'numeric', month: '2-digit', year: 'numeric'})
+        p.strong Data urodzenia: 
+        p.margin #{date}
+      p.strong Adres e-mail: 
+      p.margin #{user.email}
+      p.strong Nr telefonu: 
+      p.margin #{user.number}
+      br
+      if user.course
+        h2.course__title #{user.course.name}
+        each subject in user.course.subjects
+          p.strong #{subject.name} - #{subject.teacher.name} #{subject.teacher.surname}
+        button.discontinue.button--main.button--main-small Wypisz z kursu

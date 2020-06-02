@@ -1,0 +1,27 @@
+extends base
+
+block content
+    div.container
+        a(href="/")
+            img.logo(src="./style/logo.png" alt="Trade School Logo" title="Designed by rawpixel.com / Freepik")
+        div.login__card
+            h2.card__title Zaloguj się
+            form.login__form.login
+                label(for='email')
+                input#email.input__form.input__form--email(type='email', placeholder='email', autocomplete="off")
+                label(for='password')
+                input#password.input__form.input__form--password(type='password', placeholder='hasło', autocomplete="off")
+                button.button--main Zaloguj
+                span.register
+                    a(href="/signup") Chcę założyć konto
+                    a(href="/forgotPassword") Nie pamiętam hasła
+                div.container__pop
+                    <div class="popup" id="pop">Autorzy
+                        <span class="popuptext" id="myPopup">Eryk Kozyra </br> Adrian Sikora</span>
+                    </div>
+
+                    <div class="popup" id="pop2">Development
+                        <span class="popuptext" id="myPopupDev"><a href="https://documenter.getpostman.com/view/11072195/Szf25qKp?version=latest" target='_blank'>Dokumentacja API</a></span>
+                    </div>                    
+    
+                

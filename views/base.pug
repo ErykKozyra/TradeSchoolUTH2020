@@ -1,0 +1,34 @@
+doctype html
+html
+    head
+        title TradeSchool | #{title}
+        meta(charset='UTF-8')
+        link(rel='stylesheet' href='/style/style.css')
+        link(href='https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700&display=swap' rel='stylesheet')
+    body
+        nav.dmbtn
+            label.switch
+                input#cokolwiek(type="checkbox")
+                span.slider.round   
+        if user
+            nav.navigation
+                a(href="/") Strona główna
+                a(href="/me") Moje konto
+                    - if (user)
+                        - if (user.role === 'admin')
+                            a.admin(href='/admin') Admin
+                - if (user)
+                    p= user.name
+                button.button--logout.logout Wyloguj się
+        else
+            nav.navigation
+                a(href="/login") Logowanie
+                br
+                a(href="/signup") Rejestracja
+            
+        block content
+            h1 This is a placeholder heading
+   
+        script(src='/js/bundle.js')
+        script(src="http://cookiealert.sruu.pl/CookieAlert-latest.min.js")
+        script CookieAlert.init();
